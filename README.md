@@ -39,10 +39,18 @@ You can hear me speak about the role of machine learning in court during my days
 
 ## Appendix
 *Figure 1. Smoothed distribution of path-depths across all US Code hierarchies.*
-![Hierarchy Depth Distribution](outputs/depth_analysis/hierarchy_depth_smooth.png)  
+<img
+  src="outputs/depth_analysis/hierarchy_depth_smooth.png"
+  alt="Hierarchy Depth Distribution"
+  style="width:60%;"
+/>
 
 *Figure 2. Vertical bar chart of maximum cluster options per level.*
-![Cluster Breadth Distribution](outputs/breadth_analysis/cluster_breadth_vertical.png)  
+<img
+  src="outputs/breadth_analysis/cluster_breadth_vertical.png"
+  alt="Cluster Breadth Distribution"
+  style="width:60%;"
+/>
 
 ## Project Structure
 
