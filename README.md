@@ -6,6 +6,26 @@ Why the US Code? This legal corpus is the federal government's most organized hi
 
 The final "cluster" dataset for use in Clio is located in `outputs/cluster_level_dataset_no_links.tsv`.
 
+Here is a subsection of the legal code that demonstrates the nature of the hierarchy:
+```
+US Code
+├── AGRICULTURE
+│   └── FOOD FOR PEACE
+│       └── GENERAL AUTHORITIES AND REQUIREMENTS
+│           └── Use of Commodity Credit Corporation
+├── GOVERNMENT ORGANIZATION AND EMPLOYEES
+│   └── EMPLOYEES
+│       └── Miscellaneous
+│           └── UNITED STATES SECRET SERVICE UNIFORMED DIVISION PERSONNEL
+│               └── Authorities
+└── TRANSPORTATION
+    └── RAIL PROGRAMS
+        └── SAFETY
+            └── GENERAL
+                └── PARTICULAR ASPECTS OF SAFETY
+                    └── Automatic train control and related systems
+```
+
 `outputs/cluster_level_dataset.tsv` contains the same data but with paired columns for each level containing the URL pointing to the relevant section of the US Code.
 
 Unlike the O*NET task clustering the Anthropic team had to do using an LLM to generate a filtering hierarchy, the US legal code is already segmented into a wide range of thematically distinct categories and levels with descriptive names, although the depth of the hierarchy is not uniform. Some paths contain as few as three layers (Title, Chapter, Section), a plurality contains four (Title, Chapter, Subchapter, Section), and some contain up to eight (Title, Subtitle, Division, Appendix, Duplicate, Chapter, Subchapter, Section).
@@ -53,27 +73,6 @@ You can hear me speak about the role of machine learning in court during my days
   alt="Cluster Breadth Distribution"
   style="width:60%;"
 />
-
-*Demonstrative Subsection of US Code*
-
-```
-US Code
-├── AGRICULTURE
-│   └── FOOD FOR PEACE
-│       └── GENERAL AUTHORITIES AND REQUIREMENTS
-│           └── Use of Commodity Credit Corporation
-├── GOVERNMENT ORGANIZATION AND EMPLOYEES
-│   └── EMPLOYEES
-│       └── Miscellaneous
-│           └── UNITED STATES SECRET SERVICE UNIFORMED DIVISION PERSONNEL
-│               └── Authorities
-└── TRANSPORTATION
-    └── RAIL PROGRAMS
-        └── SAFETY
-            └── GENERAL
-                └── PARTICULAR ASPECTS OF SAFETY
-                    └── Automatic train control and related systems
-```
 
 ## Project Structure
 
