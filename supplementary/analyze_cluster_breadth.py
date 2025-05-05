@@ -10,7 +10,7 @@ from pathlib import Path
 BASE_DIR      = Path(__file__).parent.parent
 OUTPUTS_DIR   = BASE_DIR / "outputs"
 DATASET_PATH  = OUTPUTS_DIR / "cluster_level_dataset_no_links.tsv"
-REPORT_PATH   = OUTPUTS_DIR / "cluster_breadth_report.txt"
+REPORT_PATH   = OUTPUTS_DIR / "cluster_breadth_report.txt" # saves to outputs/
 
 # Load dataset
 if not DATASET_PATH.exists():
