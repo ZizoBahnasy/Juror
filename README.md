@@ -27,7 +27,7 @@ The third prompt `jury_score.md` is used to evaluate the accuracy of the assista
 
 You can imagine a world in which people turn increasingly to AI in legal contexts (both to understand the law, but also potentially to determine whether somebody is in violation of it), which carries with it a series of fairly obvious risks. It is important that we understand those risks. This experiment gives us a clear framing for what those risks might look like -- first by understanding which domains are even in discussion between human beings and AI, and then consequently by understanding the statutory fidelity of the AI's judicial sensibilities. 
 
-In theory, there is a future in which AI can root out human biases and serve as a lucid peer to jurors or judges in court, offering its abilities as an impartial and highly intelligent thinking partner. But that future cannot come to exist for the betterment of society without controlling for all of the negative consequences of outsourcing our system of due process. And so this might serve as the foundation for understanding where we need to be careful.
+In theory, there is a future in which AI can root out human biases and act as a lucid peer to jurors or judges in court, serving as an impartial and highly intelligent thinking partner. But that future cannot come to exist for the betterment of society without controlling for all of the negative consequences of outsourcing our system of due process. And so this might serve as the foundation for understanding where we need to be careful.
 
 ## Project Structure
 
