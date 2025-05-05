@@ -30,7 +30,7 @@ US Code
                     └── Declaration of purpose
 ```
 
-`outputs/cluster_level_dataset.tsv` contains the same data but with a paired column for each level containing the URL pointing to the relevant section of the US Code.
+`outputs/cluster_level_dataset.tsv` contains the same data but with a paired column for each level containing the URL pointing to the relevant section of the US Code, which I might use in the future to pull the legal text itself.
 
 Unlike the O*NET task clustering process the Anthropic team had to conduct using an LLM to generate a filtering hierarchy, the US legal code is already segmented into a wide range of thematically distinct categories and levels with descriptive names, although the depth of the hierarchy is not uniform, as you can see above. Some paths contain as few as three layers (Title, Chapter, Section), a plurality contains four (Title, Chapter, Subchapter, Section), and some contain up to eight (Title, Subtitle, Division, Appendix, Duplicate, Chapter, Subchapter, Section).
 
