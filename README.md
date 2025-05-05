@@ -1,6 +1,6 @@
 # Claude as a Juror
 
-US Code dataset curation and prompting for Claude.ai experiment using Clio.
+US Code dataset curation and prompting for a Claude.ai legal experiment using Clio.
 
 Final cluster dataset for use in Clio is located in `outputs/cluster_level_dataset_no_links.tsv`.
 
