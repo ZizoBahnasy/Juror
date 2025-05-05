@@ -1,8 +1,10 @@
 # Claude as a Juror
 
-US Code dataset curation and prompting for a Claude.ai legal experiment using Clio.
+[US Code](https://uscode.house.gov/) dataset curation and prompting for a Claude.ai legal experiment using Clio.
 
-Final cluster dataset for use in Clio is located in `outputs/cluster_level_dataset_no_links.tsv`.
+Why US Code? This legal corpus is the federal government's most organized hierarchy of laws currently in effect.
+
+The final "cluster" dataset for use in Clio is located in `outputs/cluster_level_dataset_no_links.tsv`.
 
 `outputs/cluster_level_dataset.tsv` contains the same data but with paired columns for each level containing the URL pointing to the relevant section of the US Code.
 
