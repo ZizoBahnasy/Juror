@@ -30,7 +30,7 @@ You can imagine a world in which people turn increasingly to AI in legal context
 
 This experiment gives us a clear framing for what those risks might look like -- first by understanding which domains are even in discussion between human beings and AI, and then consequently by understanding the statutory fidelity of the AI's judicial sensibilities. 
 
-In theory, there is a future in which AI can root out human biases and act as a lucid peer to jurors or judges in court, serving as an impartial and highly intelligent thinking partner. But that future cannot come to exist for the betterment of society without controlling for all of the negative consequences of outsourcing our system of due process. And so this might serve as the foundation for understanding where we need to be careful.
+In theory, there is a future in which AI can root out human biases and act as a lucid peer to jurors or judges in court, serving as an impartial and highly intelligent thinking partner. But that future cannot come to exist for the betterment of society without controlling for all of the negative consequences of outsourcing our system of due process. And so this might serve as the conceptual foundation for understanding where we need to be careful.
 
 You can hear me speak about the role of machine learning in court during my days at Harvard [here](https://youtu.be/rzGQzGNAmIE?si=gN552ZUyB21TvmuV). We've come a long way since then!
 
