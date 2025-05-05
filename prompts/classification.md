@@ -1,4 +1,5 @@
 """Human: The following is a legal discussion between Claude, an AI assistant, and a user:
+
 {conversation}
 
 Assistant: I understand.
