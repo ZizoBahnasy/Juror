@@ -2,7 +2,7 @@
 
 [US Code](https://uscode.house.gov/) dataset curation and prompting for a Claude.ai legal experiment using Clio.
 
-Why US Code? This legal corpus is the federal government's most organized hierarchy of laws currently in effect.
+Why the US Code? This legal corpus is the federal government's most organized hierarchy of laws currently in effect.
 
 The final "cluster" dataset for use in Clio is located in `outputs/cluster_level_dataset_no_links.tsv`.
 
