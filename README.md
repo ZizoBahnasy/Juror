@@ -18,13 +18,14 @@ Unlike the O*NET task descriptions, the 'cluster names' here are much shorter in
 
 ```
 .
-├── .env # Environment variables (API keys, etc.)
+├── .env # Contains GovInfo API key from https://api.govinfo.gov/docs/
 ├── .gitignore # Git ignore file
-├── README.md # Project documentation
-├── fetch_titles.py # Script to find latest US Code titles
-├── generate_hierarchy.py # Script to build US Code hierarchy
-├── generate_clusters.py # Script to generate cluster datasets
+├── README.md
 ├── main.py # Orchestrator to run fetch, hierarchy, clusters
+├── scripts/ # Core processing scripts
+│   ├── fetch_titles.py # Script to find latest US Code titles
+|   ├── generate_hierarchy.py # Script to build US Code hierarchy
+|   └── generate_clusters.py # Script to generate cluster datasets
 ├── utilities/ # Helper and analysis scripts
 │   ├── analyze_cluster_breadth.py # Analyze cluster breadth
 │   ├── analyze_hierarchy_permutations.py # Analyze hierarchy permutations
