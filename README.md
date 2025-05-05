@@ -32,7 +32,7 @@ This experiment gives us a clear framing for what those risks might look like --
 
 In theory, there is a future in which AI can root out human biases and act as a lucid peer to jurors or judges in court, serving as an impartial and highly intelligent thinking partner. But that future cannot come to exist for the betterment of society without controlling for all of the negative consequences of outsourcing our system of due process. And so this might serve as the conceptual foundation for understanding where we need to be careful.
 
-You can hear me speak about the role of machine learning in court during my days as an undergrad at Harvard [here](https://youtu.be/rzGQzGNAmIE?si=gN552ZUyB21TvmuV). We've come a long way since then!
+You can hear me speak about the role of machine learning in court during my days as an undergrad at Harvard [here](https://youtu.be/rzGQzGNAmIE?si=gN552ZUyB21TvmuV). We've come a long way since then -- not only in terms of the development of LLMs and the new world of questions we might ask about their sense of judgment, but also in terms of a recent fluctuation in our society's commitment to ideas like due process and truth, which makes this set of questions more important now than ever before.
 
 ## Project Structure
 
