@@ -6,17 +6,18 @@ A Python project for processing and analyzing legal data from APIs with secure A
 
 ```
 .
-├── .env                  # Environment variables (API keys, etc.)
-├── .gitignore           # Git ignore file
-├── README.md            # Project documentation
-├── title_finder.py      # Script to find latest US Code titles
-├── hierarchy_granules.py # Script to build US Code hierarchy
-├── clusters.py          # Script to generate cluster datasets
-├── utilities/           # Helper and analysis scripts
-│   ├── analyze_cluster_breadth.py    # Analyze cluster breadth
+├── .env # Environment variables (API keys, etc.)
+├── .gitignore # Git ignore file
+├── README.md # Project documentation
+├── fetch_titles.py # Script to find latest US Code titles
+├── generate_hierarchy.py # Script to build US Code hierarchy
+├── generate_clusters.py # Script to generate cluster datasets
+├── main.py # Orchestrator to run fetch, hierarchy, clusters
+├── utilities/ # Helper and analysis scripts
+│   ├── analyze_cluster_breadth.py # Analyze cluster breadth
 │   ├── analyze_hierarchy_permutations.py # Analyze hierarchy permutations
-│   └── check_granule_count.py        # Check and sum granule counts
-└── outputs/             # Directory for storing processed data
+│   └── check_granule_count.py # Check and sum granule counts
+└── outputs/ # Directory for storing processed data
     ├── latest_titles.json
     ├── title_summaries.json
     ├── uscode_hierarchy.json
@@ -42,15 +43,20 @@ Follow the workflow sequence below to process and analyze legal data:
 
 ### Main Processing Scripts
 
+run everything in one go:
+```bash
+python3 main.py
+```
+or step by step:
 ```bash
 # Generate title information
-python3 title_finder.py  # Generates outputs/latest_titles.json and outputs/title_summaries.json
+python3 fetch_titles.py  # Generates outputs/latest_titles.json and outputs/title_summaries.json
 
 # Generate hierarchy information
-python3 hierarchy_granules.py  # Generates outputs/uscode_hierarchy.json
+python3 generate_hierarchy.py  # Generates outputs/uscode_hierarchy.json
 
 # Generate cluster datasets
-python3 clusters.py  # Generates cluster_level_dataset.tsv and cluster_level_dataset_no_links.tsv
+python3 generate_clusters.py  # Generates cluster_level_dataset.tsv and cluster_level_dataset_no_links.tsv
 ```
 
 ### Supplementary Analysis Scripts (in utilities directory)

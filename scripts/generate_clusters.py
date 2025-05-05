@@ -1,29 +1,18 @@
 #!/usr/bin/env python3
 """
 US Code Cluster Dataset Creator (v3)
-
-Now only emits columns for layers that actually have a name.  Any empty hierarchy
-levels are skipped in the output rows.
-
-Outputs two TSV files:
-  1. cluster_level_dataset.tsv          (name + link pairs)
-  2. cluster_level_dataset_no_links.tsv (names only)
-
-Each row dynamically collapses out any unnamed levels, so you only get as many
-"cluster_i" columns as there are non-empty hierarchy nodes (up to MAX_CLUSTERS).
+Emits only non-empty hierarchy levels.
 """
 
 import json
 import csv
 from pathlib import Path
 
-# -----------------------------
-# Configuration Constants
-# -----------------------------
-OUTPUT_DIR = Path(__file__).parent / "outputs"
+# now one level up from scripts/
+OUTPUT_DIR = Path(__file__).parent.parent / "outputs"
 HIERARCHY_FILE = OUTPUT_DIR / "uscode_hierarchy.json"
-MAX_CLUSTERS = 8  # Max non-empty levels to emit per row
-CLUSTER_DATASET_FILE = OUTPUT_DIR / "cluster_level_dataset.tsv"
+MAX_CLUSTERS = 8
+CLUSTER_DATASET_FILE          = OUTPUT_DIR / "cluster_level_dataset.tsv"
 CLUSTER_DATASET_NO_LINKS_FILE = OUTPUT_DIR / "cluster_level_dataset_no_links.tsv"
 
 # -----------------------------
@@ -146,10 +135,10 @@ def create_cluster_dataset():
                 section_count += 1
 
     # Summary
-    print(f"✅ With-links TSV: {CLUSTER_DATASET_FILE}")
-    print(f"🚫 No-links TSV:   {CLUSTER_DATASET_NO_LINKS_FILE}")
-    print(f"📝 Sections:       {section_count}")
-    print(f"↩️ Skipped:        {skipped_count}")
+    print(f"With-links TSV: {CLUSTER_DATASET_FILE}")
+    print(f"No-links TSV:   {CLUSTER_DATASET_NO_LINKS_FILE}")
+    print(f"Sections:       {section_count}")
+    print(f"Skipped:        {skipped_count}")
 
 if __name__ == "__main__":
     create_cluster_dataset()

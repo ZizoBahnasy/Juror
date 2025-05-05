@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 """
 US Code Hierarchy Builder (v3)
-
-Fetches all granules for each US Code title and builds a flat hierarchy JSON.
-Completely structure-agnostic: does not enforce specific nesting beyond grouping by title.
-Gracefully handles missing API key and HTTP errors per title.
+Fetches all granules and builds a flat hierarchy JSON.
 """
 
 import os
@@ -14,22 +11,21 @@ import requests
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Load environment variables (expects API_KEY in .env or environment)
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
 if not API_KEY:
-    print("Error: API_KEY is not set. Please configure your GOVINFO API key in .env or environment.")
+    print("Error: API_KEY is not set.")
     exit(1)
 
-# Constants
 BASE_URL = "https://api.govinfo.gov"
-OUTPUT_DIR = Path(__file__).parent / "outputs"
+# now one level up from scripts/
+OUTPUT_DIR = Path(__file__).parent.parent / "outputs"
 OUTPUT_DIR.mkdir(exist_ok=True)
 TITLE_SUMMARIES_FILE = OUTPUT_DIR / "title_summaries.json"
-HIERARCHY_FILE = OUTPUT_DIR / "uscode_hierarchy.json"
-PAGE_SIZE = 1000       # Number of granules per API page
-RATE_LIMIT_DELAY = 0.1 # Seconds between API calls to avoid throttling
+HIERARCHY_FILE       = OUTPUT_DIR / "uscode_hierarchy.json"
 
+PAGE_SIZE = 1000
+RATE_LIMIT_DELAY = 0.1
 
 def load_title_summaries():
     """

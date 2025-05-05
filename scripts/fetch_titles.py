@@ -11,15 +11,14 @@ import time
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Load API key from .env file
+# Load API key
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
-# Constants
 BASE_URL = "https://api.govinfo.gov"
-COLLECTION_CODE = "USCODE"
-RATE_LIMIT_DELAY = 0.1  # Delay between API calls in seconds
-OUTPUT_DIR = Path(__file__).parent / "outputs"
+RATE_LIMIT_DELAY = 0.1
+# now one level up from scripts/
+OUTPUT_DIR = Path(__file__).parent.parent / "outputs"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 def get_title_latest_version(title_number, start_year=2023, end_year=2018):
