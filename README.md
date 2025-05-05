@@ -40,16 +40,6 @@ Unlike the O*NET task descriptions, the 'cluster names' here are much shorter in
     └── hierarchy_permutations.txt
 ```
 
-## Setup
-
-1. Clone the repository
-2. Create a virtual environment: `python -m venv venv`
-3. Activate the virtual environment:
-   - Windows: `venv\Scripts\activate`
-   - macOS/Linux: `source venv/bin/activate`
-4. Install dependencies: `pip install -r requirements.txt`
-5. Create a `.env` file with your API keys
-
 ## Usage
 
 Follow the workflow sequence below to process and analyze legal data:
