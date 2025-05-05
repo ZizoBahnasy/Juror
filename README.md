@@ -85,9 +85,9 @@ You can hear me speak about the role of machine learning in court during my days
 ```
 .
 ├── .env # Contains GovInfo API key from https://api.govinfo.gov/docs/
-├── .gitignore # Git ignore file
+├── .gitignore
 ├── README.md
-├── main.py # Orchestrator to run fetch, hierarchy, clusters
+├── main.py # Orchestrator for core processing scripts
 ├── scripts/ # Core processing scripts
 │   ├── fetch_titles.py # Script to find latest US Code titles
 |   ├── generate_hierarchy.py # Script to build US Code hierarchy
