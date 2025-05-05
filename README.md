@@ -12,7 +12,7 @@ See more on the varying depths in `outputs/hierarchy_permutations.txt`.
 
 The final dataset excludes any Sections that have been 'Repealed', 'Omitted', or 'Transferred', which make up 9,648 of the 60,636 total Sections, leaving us with 50,988 viable statutory Sections. This is ~3x the size of the full O*NET task dataset.
 
-Unlike the O*NET task descriptions, the 'cluster names' here are much shorter in length. `supplementary/analyze_cluster_breadth.py` calculates the maximum classification option count for each layers, with the highest being 143 options at any one point. This is a high number, but it's also only 1,166 tokens at its highest, so these lists should not be too expensive to use in the classification prompts. See more of the distribution in `outputs/cluster_breadth_report.txt`.
+Unlike the O*NET task descriptions, the 'cluster names' here are much shorter in length. `supplementary/analyze_cluster_breadth.py` calculates the maximum classification option count for each layer, with the highest being 143 options at any one point. This is a high number, but it's also only 1,166 tokens at its highest, so these lists should not be too expensive to use in the classification prompts. See more of the distribution in `outputs/cluster_breadth_report.txt`.
 
 ## Project Structure
 
