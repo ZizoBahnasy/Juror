@@ -4,7 +4,7 @@ Assistant: I understand.
 
 Human: Your job is to answer this question about the preceding conversation:
 <question>
-Does this conversation relate to the law (even if only loosely)? Answer either "Yes" or "No" with no other commentary.
+Does this conversation relate to a legal discussion, to people's rights, or to whether somebody is guilty of violating the law (even if only loosely)? Answer either "Yes" or "No" with no other commentary.
 </question>
 
 What is the answer? You MUST answer either only "Yes" or "No". Provide the answer in
