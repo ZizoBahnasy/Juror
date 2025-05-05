@@ -10,6 +10,15 @@ DEPTH STATISTICS:
 Section instances with depth ≥ 5: 23,248 out of 59,927 (38.79%)
 Section instances with depth ≥ 6: 5,117 out of 59,927 (8.54%)
 
+DEPTH DISTRIBUTION:
+------------------
+Depth 3: 12,308 sections (20.54%)
+Depth 4: 24,371 sections (40.67%)
+Depth 5: 18,131 sections (30.26%)
+Depth 6: 4,647 sections (7.75%)
+Depth 7: 453 sections (0.76%)
+Depth 8: 17 sections (0.03%)
+
 ALL PERMUTATIONS (by frequency):
 -------------------------------
 

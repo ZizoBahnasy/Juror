@@ -10,12 +10,25 @@ import json
 import re
 from pathlib import Path
 from collections import Counter
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.interpolate import make_interp_spline
+import os
 
 # Constants
 # Update path to reference parent directory's outputs folder
 OUTPUT_DIR = Path(__file__).parent.parent / "outputs"
 HIERARCHY_FILE = OUTPUT_DIR / "uscode_hierarchy.json"
-RESULTS_FILE = OUTPUT_DIR / "hierarchy_permutations.txt"
+DEPTH_ANALYSIS_DIR = OUTPUT_DIR / "depth_analysis"
+RESULTS_FILE = DEPTH_ANALYSIS_DIR / "hierarchy_permutations.txt"
+BAR_CHART_FILE = DEPTH_ANALYSIS_DIR / "hierarchy_depth_distribution.png"
+SMOOTH_CHART_FILE = DEPTH_ANALYSIS_DIR / "hierarchy_depth_smooth.png"
+
+# Create depth_analysis directory if it doesn't exist
+os.makedirs(DEPTH_ANALYSIS_DIR, exist_ok=True)
+
+# Anthropic orange color
+ANTHROPIC_ORANGE = '#f9734a'
 
 def parse_granule_id(granule_id):
     """Parse a granule ID to extract its components and structure in the correct order"""
@@ -47,6 +60,94 @@ def parse_granule_id(granule_id):
     components = [component_type for _, component_type in matches]
     
     return tuple(components)
+
+def visualize_depth_distribution(depth_counts):
+    """
+    Create visualizations showing the distribution of sections by hierarchy depth
+    
+    Args:
+        depth_counts: Dictionary mapping depth to count of sections
+    """
+    # Sort depths for consistent display
+    depths = sorted(depth_counts.keys())
+    counts = [depth_counts[d] for d in depths]
+    
+    # Calculate percentages for labels
+    total = sum(counts)
+    percentages = [(count / total) * 100 for count in counts]
+    
+    # 1. Bar Chart with Anthropic Orange
+    plt.figure(figsize=(12, 7))
+    bars = plt.bar(depths, counts, color=ANTHROPIC_ORANGE, alpha=0.9)
+    plt.xlabel('Hierarchy Depth', fontsize=12)
+    plt.ylabel('Number of Sections', fontsize=12)
+    plt.title('Distribution of US Code Sections by Hierarchy Depth', fontsize=14)
+    plt.xticks(depths, fontsize=10)
+    plt.yticks(fontsize=10)
+    
+    # Add count and percentage labels on top of bars
+    for i, (bar, count, pct) in enumerate(zip(bars, counts, percentages)):
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2., height + 0.1,
+                f'{count:,}\n({pct:.1f}%)',
+                ha='center', va='bottom', fontsize=9)
+    
+    # Add grid lines for readability
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.tight_layout()
+    plt.savefig(BAR_CHART_FILE, dpi=300, bbox_inches='tight')
+    plt.close()
+    
+    # 2. Smooth Distribution Curve
+    plt.figure(figsize=(12, 7))
+    
+    # Create x values for smooth curve (more points than just the depths)
+    x_smooth = np.linspace(min(depths), max(depths), 300)
+    
+    # Create the spline function
+    if len(depths) > 3:  # Need at least 4 points for cubic spline
+        spl = make_interp_spline(depths, counts, k=3)
+        y_smooth = spl(x_smooth)
+    else:
+        # Fall back to linear interpolation if not enough points
+        from scipy.interpolate import interp1d
+        f = interp1d(depths, counts, kind='linear')
+        y_smooth = f(x_smooth)
+    
+    # Plot the smooth curve
+    plt.plot(x_smooth, y_smooth, color=ANTHROPIC_ORANGE, linewidth=3)
+    
+    # Add points at the actual data points
+    plt.scatter(depths, counts, color=ANTHROPIC_ORANGE, s=100, zorder=5)
+    
+    # Add labels for the actual data points
+    for i, (x, y, pct) in enumerate(zip(depths, counts, percentages)):
+        plt.annotate(f'{y:,} ({pct:.1f}%)', 
+                    (x, y), 
+                    textcoords="offset points",
+                    xytext=(0, 10), 
+                    ha='center',
+                    fontsize=9)
+    
+    # Fill the area under the curve
+    plt.fill_between(x_smooth, y_smooth, color=ANTHROPIC_ORANGE, alpha=0.3)
+    
+    # Set labels and title
+    plt.xlabel('Hierarchy Depth', fontsize=12)
+    plt.ylabel('Number of Sections', fontsize=12)
+    plt.title('Distribution of US Code Sections by Hierarchy Depth', fontsize=14)
+    
+    # Set x-ticks to only show the actual depth values
+    plt.xticks(depths, fontsize=10)
+    plt.yticks(fontsize=10)
+    
+    # Add grid for readability
+    plt.grid(linestyle='--', alpha=0.7)
+    plt.tight_layout()
+    plt.savefig(SMOOTH_CHART_FILE, dpi=300, bbox_inches='tight')
+    plt.close()
+    
+    print(f"Visualizations saved to {BAR_CHART_FILE} and {SMOOTH_CHART_FILE}")
 
 def analyze_hierarchy_permutations():
     """Analyze the hierarchy file to find all unique permutations of components that end with section"""
@@ -103,6 +204,15 @@ def analyze_hierarchy_permutations():
     deep_weighted_percentage = (deep_section_count / total_section_count) * 100 if total_section_count > 0 else 0
     deeper_weighted_percentage = (deeper_section_count / total_section_count) * 100 if total_section_count > 0 else 0
     
+    # Track counts by depth
+    depth_counts = Counter()
+    for structure, count in permutations.items():
+        depth = len(structure)
+        depth_counts[depth] += count
+    
+    # Create visualizations
+    visualize_depth_distribution(depth_counts)
+    
     # Write results to file
     with open(RESULTS_FILE, "w") as f:
         f.write("US Code Hierarchy Permutations (Ending with Section)\n")
@@ -116,9 +226,17 @@ def analyze_hierarchy_permutations():
         
         # Add statistics about deep permutations
         f.write("DEPTH STATISTICS:\n")
-        # f.write(f"Permutation types with depth ≥ 5 and 6: {deep_permutation_count} out of {total_permutation_count} ({(deep_permutation_count / total_permutation_count) * 100:.2f}%)\n")
         f.write(f"Section instances with depth ≥ 5: {deep_section_count:,} out of {total_section_count:,} ({deep_weighted_percentage:.2f}%)\n")
         f.write(f"Section instances with depth ≥ 6: {deeper_section_count:,} out of {total_section_count:,} ({deeper_weighted_percentage:.2f}%)\n\n")
+        
+        # Add depth distribution table
+        f.write("DEPTH DISTRIBUTION:\n")
+        f.write("------------------\n")
+        for depth in sorted(depth_counts.keys()):
+            count = depth_counts[depth]
+            percentage = (count / total_section_count) * 100
+            f.write(f"Depth {depth}: {count:,} sections ({percentage:.2f}%)\n")
+        f.write("\n")
         
         f.write("ALL PERMUTATIONS (by frequency):\n")
         f.write("-------------------------------\n\n")

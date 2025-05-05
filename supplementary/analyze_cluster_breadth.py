@@ -5,15 +5,25 @@ Analyze cluster breadth and token usage (using real LLM tokenization), then save
 
 import pandas as pd
 from pathlib import Path
+import os
+import matplotlib.pyplot as plt
+import numpy as np
 
 # Use tiktoken for GPT-style BPE counting
 import tiktoken
 
 # Paths
-BASE_DIR     = Path(__file__).parent.parent
-OUTPUTS_DIR  = BASE_DIR / "outputs"
-DATASET_PATH = OUTPUTS_DIR / "cluster_level_dataset_no_links.tsv"
-REPORT_PATH  = OUTPUTS_DIR / "cluster_breadth_report.txt"
+BASE_DIR             = Path(__file__).parent.parent
+OUTPUTS_DIR          = BASE_DIR / "outputs"
+BREADTH_ANALYSIS_DIR = OUTPUTS_DIR / "breadth_analysis"
+DATASET_PATH         = OUTPUTS_DIR / "cluster_level_dataset_no_links.tsv"
+REPORT_PATH          = BREADTH_ANALYSIS_DIR / "cluster_breadth_report.txt"
+VERTICAL_CHART_FILE  = BREADTH_ANALYSIS_DIR / "cluster_breadth_vertical.png"
+
+# Anthropic orange color
+ANTHROPIC_ORANGE = '#f9734a'
+
+os.makedirs(BREADTH_ANALYSIS_DIR, exist_ok=True)
 
 # Load dataset
 if not DATASET_PATH.exists():
@@ -36,8 +46,77 @@ def count_tokens(name_list: list[str]) -> int:
             total += len(encoding.encode(name))
     return total
 
+def visualize_vertical_breadth(breadths, parents, cluster_levels):
+    """
+    Create a vertical top-down visualization of cluster breadth centered at 0
+    
+    Args:
+        breadths: List of max breadth values for each cluster level
+        parents: List of parent names for each cluster level
+        cluster_levels: List of cluster level names
+    """
+    # Create figure
+    fig, ax = plt.subplots(figsize=(10, 12))
+    
+    # Create horizontal bars centered at 0
+    y_pos = np.arange(len(breadths))
+    
+    # Create bars that extend from -breadth/2 to +breadth/2
+    half_breadths = [b/2 for b in breadths]
+    
+    # Plot horizontal bars centered at 0
+    bars = ax.barh(y_pos, half_breadths, align='center', color=ANTHROPIC_ORANGE, alpha=0.7)
+    bars = ax.barh(y_pos, [-b for b in half_breadths], align='center', color=ANTHROPIC_ORANGE, alpha=0.7)
+    
+    # Set y-axis labels (cluster levels)
+    ax.set_yticks(y_pos)
+    ax.set_yticklabels(cluster_levels)
+    
+    # Set x-axis label
+    ax.set_xlabel('Breadth (Maximum Number of Options)', fontsize=12)
+    
+    # Set title
+    ax.set_title('Maximum Cluster Breadth Distribution (Centered)', fontsize=14)
+    
+    # Add breadth values as annotations
+    for i, breadth in enumerate(breadths):
+        # Add breadth value at the end of the right bar
+        ax.text(half_breadths[i] + 1, i, f'{breadth}', 
+                va='center', ha='left', fontsize=10, fontweight='bold')
+        
+        # # Add parent name on the left side
+        # if i > 0:  # Skip level 0 which has no parent
+        #     parent_text = f"Under: '{parents[i]}'" if len(parents[i]) < 20 else f"Under: '{parents[i][:17]}...'"
+        #     ax.text(-half_breadths[i] - 1, i, parent_text, 
+        #             va='center', ha='right', fontsize=8)
+    
+    # Add a vertical line at x=0
+    ax.axvline(x=0, color='black', linestyle='-', alpha=0.3)
+    
+    # Add grid lines
+    ax.grid(axis='x', linestyle='--', alpha=0.7)
+    
+    # Remove top and right spines
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    
+    # Invert y-axis to have top-down ordering
+    ax.invert_yaxis()
+    
+    # Adjust layout and save
+    plt.tight_layout()
+    plt.savefig(VERTICAL_CHART_FILE, dpi=300, bbox_inches='tight')
+    plt.close()
+    
+    print(f"Vertical visualization saved to {VERTICAL_CHART_FILE}")
+
 def count_cluster_breadth(df: pd.DataFrame):
     report_lines: list[str] = []
+    
+    # Lists to store data for visualization
+    breadths = []
+    parent_names = ["None"]  # Level 0 has no parent
+    cluster_levels = []
 
     # Level 0
     lvl0 = df['cluster_0_name'].dropna().unique().tolist()
@@ -46,6 +125,8 @@ def count_cluster_breadth(df: pd.DataFrame):
     line0 = (f"Cluster 0 max breadth: {breadth0} (top-level titles), "
              f"tokens if listed: {tokens0}")
     print(line0); report_lines.append(line0)
+    breadths.append(breadth0)
+    cluster_levels.append("Cluster 0 (Titles)")
 
     # Level 1
     lvl1 = df.dropna(subset=['cluster_1_name']) \
@@ -57,6 +138,9 @@ def count_cluster_breadth(df: pd.DataFrame):
     line1 = (f"Cluster 1 max breadth: {max1} under cluster_0 '{parent1}', "
              f"tokens if listed: {tokens1}")
     print(line1); report_lines.append(line1)
+    breadths.append(max1)
+    parent_names.append(parent1)
+    cluster_levels.append("Cluster 1")
 
     # Level 2
     lvl2 = df.dropna(subset=['cluster_2_name']) \
@@ -71,6 +155,9 @@ def count_cluster_breadth(df: pd.DataFrame):
     line2 = (f"Cluster 2 max breadth: {max2} under cluster_1 '{parent2[1]}' "
              f"(in title '{parent2[0]}'), tokens if listed: {tokens2}")
     print(line2); report_lines.append(line2)
+    breadths.append(max2)
+    parent_names.append(parent2[1])
+    cluster_levels.append("Cluster 2")
 
     # Level 3
     lvl3 = df.dropna(subset=['cluster_3_name']) \
@@ -86,6 +173,9 @@ def count_cluster_breadth(df: pd.DataFrame):
     line3 = (f"Cluster 3 max breadth: {max3} under cluster_2 '{parent3[2]}' "
              f"(path {parent3[:2]}), tokens if listed: {tokens3}")
     print(line3); report_lines.append(line3)
+    breadths.append(max3)
+    parent_names.append(parent3[2])
+    cluster_levels.append("Cluster 3")
 
     # Level 4
     lvl4 = df.dropna(subset=['cluster_4_name']) \
@@ -102,6 +192,9 @@ def count_cluster_breadth(df: pd.DataFrame):
     line4 = (f"Cluster 4 max breadth: {max4} under cluster_3 '{parent4[3]}' "
              f"(path {parent4[:3]}), tokens if listed: {tokens4}")
     print(line4); report_lines.append(line4)
+    breadths.append(max4)
+    parent_names.append(parent4[3])
+    cluster_levels.append("Cluster 4")
 
     # Level 5
     lvl5 = df.dropna(subset=['cluster_5_name']) \
@@ -119,6 +212,9 @@ def count_cluster_breadth(df: pd.DataFrame):
     line5 = (f"Cluster 5 max breadth: {max5} under cluster_4 '{parent5[4]}' "
              f"(path {parent5[:4]}), tokens if listed: {tokens5}")
     print(line5); report_lines.append(line5)
+    breadths.append(max5)
+    parent_names.append(parent5[4])
+    cluster_levels.append("Cluster 5")
 
     # Level 6
     lvl6 = df.dropna(subset=['cluster_6_name']) \
@@ -137,6 +233,9 @@ def count_cluster_breadth(df: pd.DataFrame):
     line6 = (f"Cluster 6 max breadth: {max6} under cluster_5 '{parent6[5]}' "
              f"(path {parent6[:5]}), tokens if listed: {tokens6}")
     print(line6); report_lines.append(line6)
+    breadths.append(max6)
+    parent_names.append(parent6[5])
+    cluster_levels.append("Cluster 6")
 
     # Level 7
     lvl7 = df.dropna(subset=['cluster_7_name']) \
@@ -156,6 +255,12 @@ def count_cluster_breadth(df: pd.DataFrame):
     line7 = (f"Cluster 7 max breadth: {max7} under cluster_6 '{parent7[6]}' "
              f"(path {parent7[:6]}), tokens if listed: {tokens7}")
     print(line7); report_lines.append(line7)
+    breadths.append(max7)
+    parent_names.append(parent7[6])
+    cluster_levels.append("Cluster 7")
+
+    # Create vertical visualization
+    visualize_vertical_breadth(breadths, parent_names, cluster_levels)
 
     # Write out report
     REPORT_PATH.write_text("\n".join(report_lines))
