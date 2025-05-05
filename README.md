@@ -1,10 +1,17 @@
-# Legal Data Processing Project
+# Claude as a Juror
 
 US Code dataset curation and prompting for Claude.ai experiment using Clio.
 
 Final cluster dataset for use in Clio is located in `outputs/cluster_level_dataset_no_links.tsv`.
 
 `outputs/cluster_level_dataset.tsv` contains the same data but with paired columns for each level containing the URL pointing to the relevant section of the US Code.
+
+Unlike the O*NET task clustering the Anthropic team had to do to create a hierarchy to narrow down the classification options, the US legal code is already segmented into multiple levels, although the depth of the hierarchy is not uniform. Some sections contain as few as three layers (Title, Chapter, Section), a plurality contain four (Title, Chapter, Subchapter, Subsection), and some contain up to eight (Title, Subtitle, Division, Appendix, Duplicate, Chapter, Subchapter, Section).
+
+See more on the varying depths in `outputs/hierarchy_permutations.txt`.
+
+The final dataset excludes any Sections that have been 'Repealed', 'Omitted', or 'Transferred', which make up 9,648 of the 60,636 total Sections, leaving us with 50,988 viable statutory Sections. This is ~3x the size of the full O*NET task dataset.
+
 
 ## Project Structure
 
