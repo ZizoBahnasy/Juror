@@ -50,7 +50,7 @@ The first prompt `screener.md` is used to filter out non-legal conversations fro
 
 The second prompt `classification.md` is the crux of the experiment. It is used to map legal conversations to the appropriate domain at each level of the hierarchy, until we end up with the final statute. We can use the output of this method the same way the Economic Index uses clio_pct across O*NET tasks -- what are the legal domains users are discussing with AI?
 
-The third prompt `common_vs_civil.md` is used to classify Claude's reasoning process betwene the two standard legal paradigms -- common law and civil law. These are two distinct approaches to legal thinking that use different mechanisms to arrive at a verdict -- common law uses precedent cases and analogous transfer, while civil law uses a direct assessment against existing statutes.
+The third prompt `common_vs_civil.md` is used to classify Claude's reasoning process between the two standard legal paradigms -- common law and civil law. These are two distinct approaches to legal thinking that use different mechanisms to arrive at a verdict -- common law uses precedent cases and analogous transfer, while civil law uses a direct assessment against existing statutes.
 
 The fourth prompt `jury_score.md` is used to evaluate the accuracy of the assistant's legal advice in answering the user's question. This would be a post-classification process that feeds in the final statute and compares Claude's response to the text of the law itself or even a panel of jurors across newly unveiled cases.
 
