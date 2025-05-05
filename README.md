@@ -92,10 +92,16 @@ You can hear me speak about the role of machine learning in court during my days
 │   ├── fetch_titles.py # Script to find latest US Code titles
 |   ├── generate_hierarchy.py # Script to build US Code hierarchy
 |   └── generate_clusters.py # Script to generate cluster datasets
-├── utilities/ # Helper and analysis scripts
+├── supplementary/ # Helper and analysis scripts
 │   ├── analyze_cluster_breadth.py # Analyze cluster breadth
 │   ├── analyze_hierarchy_permutations.py # Analyze hierarchy permutations
-│   └── check_granule_count.py # Check and sum granule counts
+│   ├── check_granule_count.py # Check and sum granule counts
+│   └── sample_hierarchy.py # Generate an ASCII tree featuring a subsection of the legal code
+├── prompts/ # Prompts for use with Clio
+│   ├── classification.md # Used to map conversations to legal domain
+│   ├── common_vs_civil.md # Used to determine legal paradigm
+│   ├── jury_score.md # Used to assess judicial fidelity
+│   └── screener.md # Used to screen for relevant conversations
 └── outputs/ # Directory for storing processed data
     ├── latest_titles.json
     ├── title_summaries.json
@@ -103,7 +109,18 @@ You can hear me speak about the role of machine learning in court during my days
     ├── cluster_level_dataset.tsv # Primary output with links
     ├── cluster_level_dataset_no_links.tsv # Primary output without links
     ├── granule_counts.json
-    └── hierarchy_permutations.txt
+    ├── breadth_analysis
+    │   ├── cluster_breadth_report.txt # Analysis of maximum breadth at each layer + token count
+    │   ├── cluster_breadth_vertical.png
+    │   └── cluster_tokens_vertical.png
+    ├── depth_analysis
+    │   ├── hierarchy_depth_distribution.png
+    │   ├── hierarchy_depth_smooth.png
+    │   └── hierarchy_permutations.txt # Analysis of the different hierarchical paths and their statistics
+    └── taxonomy
+        └── taxonomy.md # Subsection of US Code
+
+     hierarchy_permutations.txt
 ```
 
 ## Usage
