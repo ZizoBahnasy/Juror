@@ -1,4 +1,3 @@
-
 Cluster 0 max breadth: 53 (top-level titles), tokens if listed: 150
 Cluster 1 max breadth: 141 under cluster_0 'THE PUBLIC HEALTH AND WELFARE', tokens if listed: 681
 Cluster 2 max breadth: 143 under cluster_1 'DEPARTMENT OF STATE' (in title 'FOREIGN RELATIONS AND INTERCOURSE'), tokens if listed: 1166
