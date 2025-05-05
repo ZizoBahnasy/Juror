@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Main orchestrator for the Legal Data Processing Project.
+Main orchestrator for Claude's Juror experiment.
 Runs the three core scripts in sequence:
  1. scripts/fetch_titles.py
  2. scripts/generate_hierarchy.py
