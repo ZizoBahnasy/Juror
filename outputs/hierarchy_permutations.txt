@@ -6,6 +6,10 @@ Structure: title > subtitle > division > app > duplicate > chapter > subchapter 
 Count: 17
 Example: USCODE-2023-title54-subtitleIII-divsnA-app-dup4-chap3061-subchapIII-sec306131
 
+DEPTH STATISTICS:
+Section instances with depth ≥ 5: 23,248 out of 59,927 (38.79%)
+Section instances with depth ≥ 6: 5,117 out of 59,927 (8.54%)
+
 ALL PERMUTATIONS (by frequency):
 -------------------------------
 
@@ -202,3 +206,5 @@ Count: 1
 Example: USCODE-2023-title26-subtitleI-sec9500
 
 Total unique permutations ending with section: 48
+Percentage of permutation types with depth ≥ 5: 79.17%
+Percentage of section instances with depth ≥ 5: 38.79%

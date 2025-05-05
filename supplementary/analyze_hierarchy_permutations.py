@@ -88,6 +88,21 @@ def analyze_hierarchy_permutations():
     deepest_count = permutations[deepest_permutation]
     deepest_example = granule_examples[deepest_permutation]
     
+    # Calculate statistics for permutations with depth >= 5 and 6
+    deep_permutations = {p: count for p, count in permutations.items() if len(p) >= 5}
+    deeper_permutations = {p: count for p, count in permutations.items() if len(p) >= 6}
+    deep_permutation_count = len(deep_permutations)
+    deeper_permutation_count = len(deeper_permutations)
+
+    total_permutation_count = len(permutations)
+    
+    # Calculate weighted percentage based on actual counts
+    deep_section_count = sum(deep_permutations.values())
+    deeper_section_count = sum(deeper_permutations.values())
+    total_section_count = sum(permutations.values())
+    deep_weighted_percentage = (deep_section_count / total_section_count) * 100 if total_section_count > 0 else 0
+    deeper_weighted_percentage = (deeper_section_count / total_section_count) * 100 if total_section_count > 0 else 0
+    
     # Write results to file
     with open(RESULTS_FILE, "w") as f:
         f.write("US Code Hierarchy Permutations (Ending with Section)\n")
@@ -98,6 +113,12 @@ def analyze_hierarchy_permutations():
         f.write(f"Structure: {' > '.join(deepest_permutation)} (Depth: {deepest_depth})\n")
         f.write(f"Count: {deepest_count}\n")
         f.write(f"Example: {deepest_example}\n\n")
+        
+        # Add statistics about deep permutations
+        f.write("DEPTH STATISTICS:\n")
+        # f.write(f"Permutation types with depth ≥ 5 and 6: {deep_permutation_count} out of {total_permutation_count} ({(deep_permutation_count / total_permutation_count) * 100:.2f}%)\n")
+        f.write(f"Section instances with depth ≥ 5: {deep_section_count:,} out of {total_section_count:,} ({deep_weighted_percentage:.2f}%)\n")
+        f.write(f"Section instances with depth ≥ 6: {deeper_section_count:,} out of {total_section_count:,} ({deeper_weighted_percentage:.2f}%)\n\n")
         
         f.write("ALL PERMUTATIONS (by frequency):\n")
         f.write("-------------------------------\n\n")
@@ -110,7 +131,9 @@ def analyze_hierarchy_permutations():
             f.write(f"Example: {granule_examples[structure]}\n\n")
         
         # Summary
-        f.write(f"Total unique permutations ending with section: {len(permutations)}\n")
+        f.write(f"Total unique permutations ending with section: {total_permutation_count}\n")
+        f.write(f"Percentage of permutation types with depth ≥ 5: {(deep_permutation_count / total_permutation_count) * 100:.2f}%\n")
+        f.write(f"Percentage of section instances with depth ≥ 5: {deep_weighted_percentage:.2f}%\n")
     
     # Print summary to console with focus on the deepest path
     print("\n=== DEEPEST HIERARCHY PATH IN US CODE ===")
@@ -120,7 +143,9 @@ def analyze_hierarchy_permutations():
     print(f"Example: {deepest_example}")
     print("=========================================\n")
     
-    print(f"Found {len(permutations)} unique permutations of hierarchy components ending with section.")
+    print(f"Found {total_permutation_count} unique permutations of hierarchy components ending with section.")
+    print(f"Permutation types with depth ≥ 5: {deep_permutation_count} ({(deep_permutation_count / total_permutation_count) * 100:.2f}%)")
+    print(f"Section instances with depth ≥ 5: {deep_section_count:,} out of {total_section_count:,} ({deep_weighted_percentage:.2f}%)")
     print(f"Results written to {RESULTS_FILE}")
     
     # Also print the top 5 most common permutations
