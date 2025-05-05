@@ -1,8 +1,9 @@
-"""The following is a legal discussion.
-
+"""Human: The following is a legal discussion between Claude, an AI assistant, and a user:
 {conversation}
 
-The following is a list of legal domains or statutes. Your job is to identify which legal category best describes the scope of the conversation. Consider all the options before you answer.
+Assistant: I understand.
+
+Human: The following is a list of legal domains or statutes. Your job is to identify which legal category best describes the scope of the conversation. Consider all the options before you answer.
 
 {options_str}
 
