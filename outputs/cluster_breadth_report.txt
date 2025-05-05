@@ -1,0 +1,8 @@
+Cluster 0 max breadth: 53 (top-level titles), tokens if listed: 150
+Cluster 1 max breadth: 141 under cluster_0 'THE PUBLIC HEALTH AND WELFARE', tokens if listed: 681
+Cluster 2 max breadth: 143 under cluster_1 'DEPARTMENT OF STATE' (in title 'FOREIGN RELATIONS AND INTERCOURSE'), tokens if listed: 1166
+Cluster 3 max breadth: 131 under cluster_2 'GENERAL PROVISIONS' (path ('NAVIGATION AND NAVIGABLE WATERS', 'WATER RESOURCES DEVELOPMENT')), tokens if listed: 604
+Cluster 4 max breadth: 97 under cluster_3 'REPEALED' (path ('ARMED FORCES', 'General Military Law', 'SERVICE, SUPPLY, AND PROPERTY')), tokens if listed: 193
+Cluster 5 max breadth: 93 under cluster_4 'PUNITIVE ARTICLES' (path ('ARMED FORCES', 'General Military Law', 'PERSONNEL', 'UNIFORM CODE OF MILITARY JUSTICE')), tokens if listed: 592
+Cluster 6 max breadth: 43 under cluster_5 'Business Related Credits' (path ('INTERNAL REVENUE CODE', 'Income Taxes', 'NORMAL TAXES AND SURTAXES', 'Determination of Tax Liability', 'CREDITS AGAINST TAX')), tokens if listed: 241
+Cluster 7 max breadth: 8 under cluster_6 'Center for Substance Abuse Treatment' (path ('THE PUBLIC HEALTH AND WELFARE', 'PUBLIC HEALTH SERVICE', 'NATIONAL RESEARCH INSTITUTES', 'SUBSTANCE ABUSE AND MENTAL HEALTH SERVICES ADMINISTRATION', 'Centers and Programs', 'center for substance abuse treatment')), tokens if listed: 72
