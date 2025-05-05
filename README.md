@@ -4,7 +4,7 @@
 
 Why the US Code? This legal corpus is the federal government's most organized hierarchy of laws currently in effect.
 
-The final "cluster" dataset for use in Clio is located in `outputs/cluster_level_dataset_no_links.tsv`.
+The final 'cluster' dataset for use in Clio is located in `outputs/cluster_level_dataset_no_links.tsv`.
 
 Here is a subsection of the legal code that demonstrates the nature of the hierarchy:
 
