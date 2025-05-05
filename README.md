@@ -7,23 +7,27 @@ Why the US Code? This legal corpus is the federal government's most organized hi
 The final "cluster" dataset for use in Clio is located in `outputs/cluster_level_dataset_no_links.tsv`.
 
 Here is a subsection of the legal code that demonstrates the nature of the hierarchy:
+
 ```
 US Code
-├── AGRICULTURE
-│   └── FOOD FOR PEACE
-│       └── GENERAL AUTHORITIES AND REQUIREMENTS
-│           └── Use of Commodity Credit Corporation
-├── GOVERNMENT ORGANIZATION AND EMPLOYEES
-│   └── EMPLOYEES
-│       └── Miscellaneous
-│           └── UNITED STATES SECRET SERVICE UNIFORMED DIVISION PERSONNEL
-│               └── Authorities
-└── TRANSPORTATION
-    └── RAIL PROGRAMS
-        └── SAFETY
-            └── GENERAL
-                └── PARTICULAR ASPECTS OF SAFETY
-                    └── Automatic train control and related systems
+├── NAVIGATION AND NAVIGABLE WATERS
+│   └── FLOOD CONTROL
+│       └── Emergency response to natural disasters
+│           ├── Permanent measures to reduce emergency flood fighting needs for communities subject to repetitive flooding
+│           └── Monthly report to Congress
+├── SHIPPING
+│   └── Merchant Marine
+│       └── Financial Assistance Programs
+│           └── CABLE SECURITY FLEET
+│               ├── Establishment of the Cable Security Fleet
+│               └── Regulatory relief
+└── TELECOMMUNICATIONS
+    └── WIRE OR RADIO COMMUNICATION
+        └── SPECIAL PROVISIONS RELATING TO RADIO
+            └── Assistance for Planning and Construction of Public Telecommunications Facilities; Telecommunications Demonstrations; Corporation for Public Broadcasting; General Provisions
+                └── assistance for planning and construction of public telecommunications facilities
+                    ├── Criteria for approval and expenditures by Secretary
+                    └── Declaration of purpose
 ```
 
 `outputs/cluster_level_dataset.tsv` contains the same data but with paired columns for each level containing the URL pointing to the relevant section of the US Code.
