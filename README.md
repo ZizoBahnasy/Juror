@@ -16,13 +16,7 @@ The final dataset excludes any Sections that have been 'Repealed', 'Omitted', or
 
 Unlike the O*NET task descriptions, the individual 'cluster names' here are notably short in length. `supplementary/analyze_cluster_breadth.py` calculates the maximum classification option count for each layer, with the highest being 143 options at any one point. This is a high number, but it's also only ~1,400 tokens at its peak, so these lists should not be prohibitively expensive to use in the classification prompts. See more of the distribution in `outputs/cluster_breadth_report.txt`.
 
-There is a risk that this breadth of options as well as the depth of the hierarchy for a non-negligible subset of the legal domains (38.79% of paths have a depth of 5 or greater, while 8.54% have a depth of 6 or greater) increase the volume of LLM calls and input tokens significantly. This is worth analyzing more closely, but my initial impression is that the deepest paths have the narrowest set of options toward the end of the hierarchy, which mitigates the risk of struggling to contain the volume quite a bit.
-
-![Hierarchy Depth Distribution](outputs/depth_analysis/hierarchy_depth_smooth.png)  
-*Figure 1. Smoothed distribution of path-depths across all US Code hierarchies.*
-
-![Cluster Breadth Distribution](outputs/breadth_analysis/cluster_breadth_vertical.png)  
-*Figure 2. Vertical bar chart of maximum cluster options per level.*
+There is a risk that this breadth of options as well as the depth of the hierarchy for a non-negligible subset of the legal domains (38.79% of paths have a depth of 5 or greater, while 8.54% have a depth of 6 or greater) increase the volume of LLM calls and input tokens significantly. This is worth analyzing more closely, but my initial impression is that the deepest paths have the narrowest set of options toward the end of the hierarchy, which mitigates the risk of struggling to contain the volume quite a bit. See `outputs/depth_analysis/hierarchy_depth_smooth.png` and `outputs/breadth_analysis/cluster_breadth_vertical.png` to visualize the distributions, or see the Appendix section below.
 
 ## Prompts
 
@@ -42,6 +36,13 @@ This experiment gives us a clear framing for what these risks might look like --
 In theory, there is a future in which AI can root out human biases and act as a lucid peer to jurors or judges in court, serving as an impartial and highly intelligent thinking partner. But that future cannot come to exist for the betterment of society without our controlling for all of the negative consequences of outsourcing a rightfully human system of due process. And so this might serve as the conceptual foundation for understanding where we need to be careful.
 
 You can hear me speak about the role of machine learning in court during my days as an undergrad at Harvard [here](https://youtu.be/rzGQzGNAmIE?si=gN552ZUyB21TvmuV). We've come a long way since then -- not only in terms of the development of LLMs and the world of novel questions we might ask about a computer's sense of judgment, but also in terms of a recent fluctuation in our society's commitment to ideas like due process and truth, and perhaps a realization that these things cannot be taken for granted, which makes this research more important now than ever before.
+
+## Appendix
+*Figure 1. Smoothed distribution of path-depths across all US Code hierarchies.*
+![Hierarchy Depth Distribution](outputs/depth_analysis/hierarchy_depth_smooth.png)  
+
+*Figure 2. Vertical bar chart of maximum cluster options per level.*
+![Cluster Breadth Distribution](outputs/breadth_analysis/cluster_breadth_vertical.png)  
 
 ## Project Structure
 
