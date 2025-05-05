@@ -16,6 +16,19 @@ The final dataset excludes any Sections that have been 'Repealed', 'Omitted', or
 
 Unlike the O*NET task descriptions, the individual 'cluster names' here are notably short in length. `supplementary/analyze_cluster_breadth.py` calculates the maximum classification option count for each layer, with the highest being 143 options at any one point. This is a high number, but it's also only ~1,400 tokens at its peak, so these lists should not be prohibitively expensive to use in the classification prompts. See more of the distribution in `outputs/cluster_breadth_report.txt`.
 
+## Prompts
+Our experimental prompts are located in `prompts/`.
+
+The first prompt `screener.md` is used to filter out non-legal conversations from the Claude dataset.
+
+The second prompt `classification.md` is the crux of the experiment. It is used to map legal conversations to the appropriate domain at each level of the hierarchy, until we end up with the final statute. We can use the output of this method the same way the Economic Index uses clio_pct across O*NET tasks -- what are the legal domains users are discussing with AI?
+
+The third prompt `jury_score.md` is used to evaluate the accuracy of the assistant's legal advice in answering the user's question. This would be a post-classification process that feeds in the final statute and compares Claude's response to the text of the law itself.
+
+You can imagine a world in which people turn increasingly to AI in legal contexts (both to understand the law, but also potentially to determine whether somebody is in violation of it), which carries with it a series of fairly obvious risks. It is important that we understand those risks. This experiment gives us a clear framing for what those risks might look like -- first by understanding which domains are even in discussion between human beings and AI, and then consequently by understanding the statutory fidelity of the AI's judicial sensibilities. 
+
+In theory, there is a future in which AI can root out human biases and serve as a lucid peer to jurors or judges in court, serving as an impartial and highly intelligent thinking partner. But that future cannot come to exist for the betterment of society without controlling for all of the negative consequences of outsourcing our system of due process. And so this might serve as the foundation for understanding where we need to be careful.
+
 ## Project Structure
 
 ```
