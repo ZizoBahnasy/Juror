@@ -129,7 +129,7 @@ Follow the workflow sequence below to process and analyze legal data:
 
 ### Main Processing Scripts
 
-run everything in one go:
+run core scripts in one go:
 ```bash
 python3 main.py
 ```
