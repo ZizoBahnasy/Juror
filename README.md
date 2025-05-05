@@ -34,8 +34,8 @@ Unlike the O*NET task descriptions, the 'cluster names' here are much shorter in
     ├── latest_titles.json
     ├── title_summaries.json
     ├── uscode_hierarchy.json
-    ├── cluster_level_dataset.tsv
-    ├── cluster_level_dataset_no_links.tsv
+    ├── cluster_level_dataset.tsv # Primary output with links
+    ├── cluster_level_dataset_no_links.tsv # Primary output without links
     ├── granule_counts.json
     └── hierarchy_permutations.txt
 ```
