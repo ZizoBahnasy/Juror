@@ -6,10 +6,6 @@ Why the US Code? This legal corpus is the federal government's most organized hi
 
 The final "cluster" dataset for use in Clio is located in `outputs/cluster_level_dataset_no_links.tsv`.
 
-`outputs/cluster_level_dataset.tsv` contains the same data but with paired columns for each level containing the URL pointing to the relevant section of the US Code.
-
-Unlike the O*NET task clustering process the Anthropic team had to conduct using an LLM to generate a filtering hierarchy, the US legal code is already segmented into a wide range of thematically distinct categories and levels with descriptive names, although the depth of the hierarchy is not uniform. Some paths contain as few as three layers (Title, Chapter, Section), a plurality contains four (Title, Chapter, Subchapter, Section), and some contain up to eight (Title, Subtitle, Division, Appendix, Duplicate, Chapter, Subchapter, Section).
-
 Here is a subsection of the legal code that demonstrates the nature of the hierarchy:
 
 ```
@@ -33,6 +29,10 @@ US Code
                     ├── Criteria for approval and expenditures by Secretary
                     └── Declaration of purpose
 ```
+
+`outputs/cluster_level_dataset.tsv` contains the same data but with paired columns for each level containing the URL pointing to the relevant section of the US Code.
+
+Unlike the O*NET task clustering process the Anthropic team had to conduct using an LLM to generate a filtering hierarchy, the US legal code is already segmented into a wide range of thematically distinct categories and levels with descriptive names, although the depth of the hierarchy is not uniform, as you can see above. Some paths contain as few as three layers (Title, Chapter, Section), a plurality contains four (Title, Chapter, Subchapter, Section), and some contain up to eight (Title, Subtitle, Division, Appendix, Duplicate, Chapter, Subchapter, Section).
 
 See more on the varying depths in `outputs/hierarchy_permutations.txt`.
 
