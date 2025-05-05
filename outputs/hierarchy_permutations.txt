@@ -1,0 +1,204 @@
+US Code Hierarchy Permutations (Ending with Section)
+===============================================
+
+DEEPEST HIERARCHY PATH:
+Structure: title > subtitle > division > app > duplicate > chapter > subchapter > section (Depth: 8)
+Count: 17
+Example: USCODE-2023-title54-subtitleIII-divsnA-app-dup4-chap3061-subchapIII-sec306131
+
+ALL PERMUTATIONS (by frequency):
+-------------------------------
+
+Structure: title > chapter > subchapter > section (Depth: 4)
+Count: 19664
+Example: USCODE-2023-title2-chap9-subchapI-sec277
+
+Structure: title > chapter > section (Depth: 3)
+Count: 12261
+Example: USCODE-2023-title1-chap3-sec213
+
+Structure: title > chapter > subchapter > part > section (Depth: 5)
+Count: 8275
+Example: USCODE-2023-title2-chap9-subchapII-partII-sec282e
+
+Structure: title > subtitle > part > chapter > section (Depth: 5)
+Count: 5138
+Example: USCODE-2023-title10-subtitleF-partI-chap2013-sec20605
+
+Structure: title > part > chapter > section (Depth: 4)
+Count: 2834
+Example: USCODE-2023-title5-partII-chap15-sec1508
+
+Structure: title > subtitle > chapter > section (Depth: 4)
+Count: 1819
+Example: USCODE-2023-title14-subtitleIV-chap51-sec5115
+
+Structure: title > subtitle > chapter > subchapter > section (Depth: 5)
+Count: 1604
+Example: USCODE-2023-title14-subtitleIII-chap37-subchapII-sec3757
+
+Structure: title > subtitle > part > chapter > subchapter > section (Depth: 6)
+Count: 1502
+Example: USCODE-2023-title10-subtitleF-partI-chap2005-subchapV-sec20264
+
+Structure: title > part > chapter > subchapter > section (Depth: 5)
+Count: 1103
+Example: USCODE-2023-title5-partIV-chap131-subchapIII-sec13146
+
+Structure: title > chapter > subchapter > part > subpart > section (Depth: 6)
+Count: 960
+Example: USCODE-2023-title12-chap46-subchapI-partB-subpart3-sec4589
+
+Structure: title > part > subpart > chapter > subchapter > section (Depth: 6)
+Count: 718
+Example: USCODE-2023-title5-partIII-subpartG-chap85-subchapII-sec8525
+
+Structure: title > subtitle > chapter > part > section (Depth: 5)
+Count: 705
+Example: USCODE-2023-title26-subtitleJ-chap99-subchapB-partIV-sec9708
+
+Structure: title > subtitle > chapter > part > subpart > section (Depth: 6)
+Count: 432
+Example: USCODE-2023-title26-subtitleF-chap61-subchapA-partIII-subpartF-sec6060
+
+Structure: title > subtitle > chapter > subchapter > part > section (Depth: 6)
+Count: 397
+Example: USCODE-2023-title26-subtitleJ-chap99-subchapC-partII-sec9712
+
+Structure: title > chapter > subtitle > part > section (Depth: 5)
+Count: 378
+Example: USCODE-2023-title19-chap4-subtitleIV-partIV-sec1677n
+
+Structure: title > chapter > division > subchapter > section (Depth: 5)
+Count: 243
+Example: USCODE-2023-title42-chap23-divsnB-subchapVIII-sec2297h-9
+
+Structure: title > part > subpart > chapter > section (Depth: 5)
+Count: 233
+Example: USCODE-2023-title5-partIII-subpartJ-chap110-sec11001
+
+Structure: title > subtitle > part > subpart > chapter > section (Depth: 6)
+Count: 218
+Example: USCODE-2023-title10-subtitleA-partV-subpartI-chap388-sec4961
+
+Structure: title > subtitle > division > chapter > section (Depth: 5)
+Count: 198
+Example: USCODE-2023-title41-subtitleI-divsnC-chap47-sec4714
+
+Structure: title > subtitle > chapter > subchapter > part > subpart > section (Depth: 7)
+Count: 194
+Example: USCODE-2023-title26-subtitleE-chap51-subchapC-partII-subpartD-sec5244
+
+Structure: title > subtitle > division > chapter > subchapter > section (Depth: 6)
+Count: 143
+Example: USCODE-2023-title41-subtitleI-divsnB-chap13-subchapIII-sec1328
+
+Structure: title > subtitle > part > subpart > chapter > subchapter > section (Depth: 7)
+Count: 137
+Example: USCODE-2023-title10-subtitleA-partV-subpartI-chap389-subchapII-sec4985
+
+Structure: title > chapter > subchapter > subtitle > part > section (Depth: 6)
+Count: 125
+Example: USCODE-2023-title29-chap18-subchapIII-subtitleE-part6-sec1453
+
+Structure: title > chapter > subchapter > division > section (Depth: 5)
+Count: 107
+Example: USCODE-2023-title42-chap7-subchapXX-divsnC-sec1397n-9
+
+Structure: title > subtitle > division > app > duplicate > chapter > section (Depth: 7)
+Count: 100
+Example: USCODE-2023-title54-subtitleIII-divsnB-app-dup2-chap3125-sec312508
+
+Structure: title > chapter > subchapter > duplicate > section (Depth: 5)
+Count: 55
+Example: USCODE-2023-title12-chap7-subchapV-other-dup1-sec1134f
+
+Structure: title > subtitle > division > app > chapter > section (Depth: 6)
+Count: 55
+Example: USCODE-2023-title54-subtitleIII-divsnB-app-chap3091-sec309101
+
+Structure: title > chapter > subchapter > subtitle > section (Depth: 5)
+Count: 52
+Example: USCODE-2023-title29-chap18-subchapIII-subtitleF-sec1461
+
+Structure: title > chapter > subchapter > division > part > section (Depth: 6)
+Count: 52
+Example: USCODE-2023-title42-chap7-subchapXX-divsnB-partII-sec1397m-5
+
+Structure: title > app > section (Depth: 3)
+Count: 46
+Example: USCODE-2023-title5-app-inspector-sec8L
+
+Structure: title > chapter > subtitle > duplicate > section (Depth: 5)
+Count: 26
+Example: USCODE-2023-title19-chap3-subtitleIII-other-dup9-sec172
+
+Structure: title > chapter > duplicate > section (Depth: 4)
+Count: 22
+Example: USCODE-2023-title12-chap9-other-dup9-sec1281
+
+Structure: title > chapter > subchapter > subtitle > part > subpart > section (Depth: 7)
+Count: 22
+Example: USCODE-2023-title29-chap18-subchapI-subtitleB-part7-subpartC-sec1191d
+
+Structure: title > chapter > subtitle > section (Depth: 4)
+Count: 18
+Example: USCODE-2023-title19-chap4-subtitleVI-sec1683g
+
+Structure: title > chapter > subchapter > part > division > section (Depth: 6)
+Count: 18
+Example: USCODE-2023-title19-chap12-subchapII-part2-subpartb-divsnII-sec2298
+
+Structure: title > subtitle > division > app > duplicate > chapter > subchapter > section (Depth: 8)
+Count: 17
+Example: USCODE-2023-title54-subtitleIII-divsnA-app-dup4-chap3061-subchapIII-sec306131
+
+Structure: title > chapter > division > subchapter > part > section (Depth: 6)
+Count: 12
+Example: USCODE-2023-title42-chap23-divsnA-subchapXIX-partB-sec2296b-7
+
+Structure: title > part > chapter > subchapter > duplicate > section (Depth: 6)
+Count: 9
+Example: USCODE-2023-title38-partII-chap15-subchapIII-other-dup2-sec1544
+
+Structure: title > chapter > app > section (Depth: 4)
+Count: 7
+Example: USCODE-2023-title12-chap9-app-sec1151a
+
+Structure: title > chapter > part > section (Depth: 4)
+Count: 7
+Example: USCODE-2023-title42-chap59-partB-sec4528
+
+Structure: title > chapter > subchapter > app > section (Depth: 5)
+Count: 5
+Example: USCODE-2023-title12-chap7-subchapIII-app-sec1023b
+
+Structure: title > subtitle > chapter > duplicate > subchapter > section (Depth: 6)
+Count: 4
+Example: USCODE-2023-title26-subtitleD-chap38-dup1-subchapD-sec4682
+
+Structure: title > subtitle > chapter > duplicate > section (Depth: 5)
+Count: 4
+Example: USCODE-2023-title26-subtitleD-chap38-dup1-subchapB-sec4662
+
+Structure: title > chapter > app > duplicate > section (Depth: 5)
+Count: 3
+Example: USCODE-2023-title12-chap9-app-dup3-sec1271
+
+Structure: title > chapter > subtitle > app > section (Depth: 5)
+Count: 2
+Example: USCODE-2023-title19-chap3-subtitleIII-app-sec152a
+
+Structure: title > chapter > subchapter > app > duplicate > section (Depth: 6)
+Count: 1
+Example: USCODE-2023-title12-chap7-subchapI-app-dup1-sec981
+
+Structure: title > chapter > subtitle > app > duplicate > section (Depth: 6)
+Count: 1
+Example: USCODE-2023-title19-chap3-subtitleIII-app-dup1-sec160
+
+Structure: title > subtitle > section (Depth: 3)
+Count: 1
+Example: USCODE-2023-title26-subtitleI-sec9500
+
+Total unique permutations ending with section: 48
