@@ -18,7 +18,14 @@ Unlike the O*NET task descriptions, the individual 'cluster names' here are nota
 
 There is a risk that this breadth of options as well as the depth of the hierarchy for a non-negligible subset of the legal domains (38.79% of paths have a depth of 5 or greater, while 8.54% have a depth of 6 or greater) increase the volume of LLM calls and input tokens significantly. This is worth analyzing more closely, but my initial impression is that the deepest paths have the narrowest set of options toward the end of the hierarchy, which mitigates the risk of struggling to contain the volume quite a bit.
 
+![Hierarchy Depth Distribution](outputs/depth_analysis/hierarchy_depth_smooth.png)  
+*Figure 1. Smoothed distribution of path-depths across all US Code hierarchies.*
+
+![Cluster Breadth Distribution](outputs/breadth_analysis/cluster_breadth_vertical.png)  
+*Figure 2. Vertical bar chart of maximum cluster options per level.*
+
 ## Prompts
+
 Our experimental prompts are located in `prompts/`.
 
 The first prompt `screener.md` is used to filter out non-legal conversations from the Claude dataset.
