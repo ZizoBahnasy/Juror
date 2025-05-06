@@ -123,8 +123,6 @@ You can hear me speak about the role of machine learning in court during my days
 
 ## Usage
 
-Follow the workflow sequence below to process and analyze legal data:
-
 ### Main Processing Scripts
 
 run core scripts in one go:
