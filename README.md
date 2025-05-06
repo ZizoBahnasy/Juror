@@ -119,8 +119,6 @@ You can hear me speak about the role of machine learning in court during my days
     │   └── hierarchy_permutations.txt # Analysis of the different hierarchical paths and their statistics
     └── taxonomy
         └── taxonomy.md # Subsection of US Code
-
-     hierarchy_permutations.txt
 ```
 
 ## Usage
