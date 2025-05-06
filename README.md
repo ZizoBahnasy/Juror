@@ -141,7 +141,7 @@ python3 generate_hierarchy.py  # Generates outputs/uscode_hierarchy.json
 python3 generate_clusters.py  # Generates cluster_level_dataset.tsv and cluster_level_dataset_no_links.tsv
 ```
 
-### Supplementary Analysis Scripts (in utilities directory)
+### Supplementary Analysis Scripts (in 'supplementary/')
 These scripts are not required for the main processing but can be used to analyze the generated data.
 
 ```bash
