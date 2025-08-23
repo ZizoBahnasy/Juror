@@ -1,4 +1,4 @@
-# Claude as a Juror
+# Claude as Judge & Juror
 
 [US Code](https://uscode.house.gov/) dataset curation and prompting for a Claude.ai legal experiment using Clio.
 
@@ -52,7 +52,7 @@ The second prompt `classification.md` is the crux of the experiment. It is used 
 
 The third prompt `common_vs_civil.md` is used to classify Claude's reasoning process between the two standard legal paradigms -- common law and civil law. These are two distinct approaches to legal thinking that use different mechanisms to arrive at a verdict -- common law uses precedent cases and analogous transfer, while civil law uses a direct assessment against existing statutes.
 
-The fourth prompt `jury_score.md` is used to evaluate the accuracy of the assistant's legal advice in answering the user's question. This would be a post-classification process that feeds in the final statute and compares Claude's response to the text of the law itself or even a panel of jurors across newly unveiled cases.
+The fourth prompt `jury_score.md` is used to evaluate the accuracy of the assistant's legal advice in answering the user's question. This would be a post-classification process that feeds in the final statute and compares Claude's response to the text of the law itself or even a panel of judges across newly unveiled cases.
 
 ## Motivations & Societal Impact
 You can imagine a world in which people turn increasingly to AI in legal contexts (both to understand the law, but also potentially to determine whether somebody is in violation of it), which carries with it a series of fairly obvious risks. It is important that we understand these risks. 
