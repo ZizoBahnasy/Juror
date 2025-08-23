@@ -157,7 +157,3 @@ python3 check_granule_count.py  # Generates outputs/granule_counts.json
 # Generate subsection of hierarchy tree
 python3 sample_hierarchy.py
 ```
-
-## License
-
-MIT
