@@ -1,5 +1,4 @@
-"""
-The following is a legal discussion between Claude, an AI assistant, and a user:
+"""The following is a legal discussion between Claude, an AI assistant, and a user:
 
 {conversation}
 
