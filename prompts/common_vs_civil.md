@@ -12,7 +12,5 @@ Here are some examples of how Claude might classify the legal scenario:
 
 What is the answer? You MUST provide an option exactly as written above. If both options apply, choose the single-most pertinent one. Do not return an answer except one of the options presented above. 
 
-<!-- First, start off by considering various aspects of the legal discussion in <scratchpad> tags in at most four sentences, and then provide the final, exact answer in <answer> tags with no other commentary. -->
-
 Assistant: Sure, the answer to the question is: <answer>
 """
